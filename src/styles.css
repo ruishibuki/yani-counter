@@ -551,7 +551,7 @@ button {
 
   .simple-mode .main-card {
     grid-template-columns: 1fr;
-    padding: 14px;
+    padding: 28px 14px 14px;
   }
 }
 
