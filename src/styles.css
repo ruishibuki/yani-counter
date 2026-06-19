@@ -38,27 +38,6 @@ button {
     linear-gradient(160deg, #fffafe 0%, #f3eaff 52%, #ffffff 100%);
 }
 
-.app-shell::before,
-.app-shell::after {
-  position: absolute;
-  color: rgba(188, 151, 218, 0.2);
-  content: '･ ･ ･ ･ ･ ･';
-  font-size: 36px;
-  letter-spacing: 8px;
-  transform: rotate(-18deg);
-}
-
-.app-shell::before {
-  top: 46px;
-  left: -28px;
-}
-
-.app-shell::after {
-  right: -26px;
-  bottom: 70px;
-  transform: rotate(16deg);
-}
-
 .background-decor {
   position: absolute;
   display: grid;
@@ -144,6 +123,16 @@ button {
 
 .title-input::selection {
   background: #ead7fb;
+}
+
+.title-display {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  max-width: min(58vw, 230px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .main-card {
@@ -420,6 +409,13 @@ button {
   font-size: 0.96rem;
 }
 
+.simple-toggle-button[aria-pressed='true'] {
+  border-color: #c9a4ec;
+  background: linear-gradient(180deg, #efe0ff 0%, #dec3f6 100%);
+  box-shadow: 0 7px 0 rgba(173, 134, 210, 0.48);
+  color: #744c98;
+}
+
 .reset-button {
   width: auto;
   padding: 8px 18px;
@@ -441,6 +437,95 @@ button {
   border: 0;
 }
 
+.viewer-shell .action-area {
+  display: none;
+}
+
+.simple-mode {
+  min-height: 100vh;
+  padding: 22px 10px 10px;
+  overflow: visible;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 220, 240, 0.72) 0 10%, transparent 24%),
+    linear-gradient(160deg, #fffafd 0%, #f5eaff 100%);
+}
+
+.simple-mode .counter-layout {
+  width: min(100%, 330px);
+}
+
+.simple-mode .title-ribbon {
+  margin-bottom: -15px;
+  padding: 8px 24px;
+  box-shadow: 0 6px 0 rgba(199, 169, 230, 0.18);
+  font-size: 0.8rem;
+}
+
+.simple-mode .title-ribbon::before,
+.simple-mode .title-ribbon::after {
+  width: 16px;
+  height: 16px;
+}
+
+.simple-mode .main-card {
+  gap: 10px;
+  padding: 24px 14px 14px;
+  border: 2px solid #dec5f6;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 26px rgba(142, 103, 177, 0.16);
+}
+
+.simple-mode .card-stitch {
+  inset: 8px;
+  border-width: 1px;
+  border-radius: 13px;
+}
+
+.simple-mode .stats-panel {
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.simple-mode .stat-box {
+  min-height: 82px;
+  border: 1px solid #ead7fb;
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.simple-mode .stat-box::after {
+  top: 8px;
+  right: 10px;
+  font-size: 12px;
+}
+
+.simple-mode .stat-label,
+.simple-mode .stat-unit {
+  font-size: 0.72rem;
+}
+
+.simple-mode .stat-number {
+  font-size: clamp(3rem, 22vw, 4.2rem);
+}
+
+.simple-mode .elapsed-time {
+  margin-top: 3px;
+  font-size: clamp(2rem, 14vw, 2.7rem);
+}
+
+.viewer-shell.simple-mode {
+  display: block;
+  width: fit-content;
+  min-width: 0;
+  min-height: 0;
+  padding: 22px 8px 8px;
+}
+
+.viewer-shell.simple-mode .counter-layout {
+  width: 300px;
+}
+
 @media (min-width: 720px) {
   .counter-layout {
     width: min(92vw, 720px);
@@ -458,6 +543,15 @@ button {
 
   .stats-panel {
     align-content: center;
+  }
+
+  .simple-mode .counter-layout {
+    width: 330px;
+  }
+
+  .simple-mode .main-card {
+    grid-template-columns: 1fr;
+    padding: 14px;
   }
 }
 
